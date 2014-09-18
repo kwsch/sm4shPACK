@@ -75,6 +75,7 @@ namespace sm4shPACK
                         using (MemoryStream dataout = new MemoryStream())
                         {
                             s.CopyTo(dataout, (int)datalength[i]);
+                            if (filenames[i].Length == 0) filenames[i] = i.ToString() + ".bin";
                             byte[] newfile = dataout.ToArray(); Array.Resize(ref newfile, (int)datalength[i]);
                             File.WriteAllBytes(Path.Combine(newFolder, filenames[i]), newfile);
                         }
